@@ -1,0 +1,21 @@
+# GCP SOC Automation Lab - Wazuh AI Analyzer systemd service
+# Sanitized public example.
+# Replace YOUR_GCP_PROJECT_ID with your Google Cloud project ID.
+
+[Unit]
+Description=Wazuh Vertex AI SOC Alert Analyzer
+After=network-online.target wazuh-manager.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/wazuh-ai-analyzer
+Environment="GOOGLE_CLOUD_PROJECT=YOUR_GCP_PROJECT_ID"
+Environment="GOOGLE_CLOUD_LOCATION=us-central1"
+ExecStart=/opt/wazuh-ai-analyzer/venv/bin/python /opt/wazuh-ai-analyzer/wazuh_ai_analyzer.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
