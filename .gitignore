@@ -216,3 +216,39 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ============================================================
+# GCP SOC Automation Lab - Security / Sensitive Files
+# ============================================================
+
+# Environment variables and secrets
+.env
+.env.*
+*.env
+
+# API keys, credentials, and service account files
+*credentials*.json
+*service-account*.json
+*apikey*
+*api-key*
+*secret*
+*token*
+
+# Private configuration files containing credentials
+application.conf.final-complete
+docker-compose.yml.final-complete
+
+# Certificates and private keys
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local incident/log data
+*.log
+incidents.jsonl
+
+# Backup files that may contain secrets
+*.backup
+*.bak
+*.backup-*
